@@ -40,7 +40,7 @@ func New(opt *Options) {
 
 	close(job)
 	swg.Wait()
-	gologger.Infof("Done!")
+	gologger.Info().Msgf("Done!")
 }
 
 func (opt *Options) run(password string) bool {
@@ -49,7 +49,7 @@ func (opt *Options) run(password string) bool {
 	con, err := ssb.Connect(opt.host, opt.port, cfg)
 	if err != nil {
 		if opt.verbose {
-			gologger.Errorf("Failed '%s': %s.", password, err.Error())
+			gologger.Error().Msgf("Failed '%s': %s.", password, err.Error())
 		}
 	}
 

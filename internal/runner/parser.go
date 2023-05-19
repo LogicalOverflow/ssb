@@ -49,7 +49,7 @@ func Parse() *Options {
 	showBanner()
 
 	if err := opt.validate(); err != nil {
-		gologger.Fatalf("Error! %s.", err.Error())
+		gologger.Fatal().Msgf("Error! %s.", err.Error())
 	}
 
 	return opt
